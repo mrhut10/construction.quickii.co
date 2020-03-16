@@ -1,5 +1,6 @@
 import React from 'react';
-import useGraphQL from '../hooks/use-graphql';
+
+import { useGraphQL } from '../hooks/use-graphql';
 
 export default function Testimonial() {
   const {

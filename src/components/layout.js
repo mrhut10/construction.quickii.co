@@ -14,12 +14,12 @@ import Footer from './footer';
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="flex h-screen overflow-hidden bg-gray-100">
-        <div className="flex flex-col flex-1 w-0 overflow-hidden">
-          <div className="relative z-0 flex-1 overflow-y-auto focus:outline-none">
-            <main className="flex flex-col flex-1">{children}</main>
-            <Footer />
-          </div>
+      <div className="flex h-screen bg-gray-100">
+        <div className="flex flex-col flex-1 w-0">
+          <main className="relative z-0 flex-1 focus:outline-none">
+            {children}
+          </main>
+          <Footer />
         </div>
       </div>
       <SignUp />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
-import useGraphQL from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks/use-graphql';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);

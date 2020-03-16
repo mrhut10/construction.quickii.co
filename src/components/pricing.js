@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import useGraphQL from '../hooks/use-graphql';
 
+import { useGraphQL } from '../hooks/use-graphql';
 import SiteContext from '../context/site-context';
 
 export default function Pricing() {

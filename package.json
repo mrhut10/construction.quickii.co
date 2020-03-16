@@ -1,7 +1,7 @@
 {
-  "name": "quickii-skydiving",
+  "name": "quickii-construction",
   "private": true,
-  "description": "Quickii template",
+  "description": "Quickii construction template",
   "version": "0.1.0",
   "author": "Luke Bennett <hello@lukebennett.com.au>",
   "dependencies": {

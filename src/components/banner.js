@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import useGraphQL from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks/use-graphql';
 
 export default function Banner() {
   const [isVisible, setVisible] = useState(true);

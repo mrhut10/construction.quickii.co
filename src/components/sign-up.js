@@ -6,7 +6,11 @@ import SiteContext from '../context/site-context';
 export default function SignUp() {
   const { isSignUpOpen, setSignUpOpen } = useContext(SiteContext);
   return (
-    <Dialog isOpen={isSignUpOpen} onDismiss={() => setSignUpOpen(false)}>
+    <Dialog
+      isOpen={isSignUpOpen}
+      onDismiss={() => setSignUpOpen(false)}
+      aria-label="I have no idea"
+    >
       <div
         className={`fixed inset-x-0 bottom-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center ${
           isSignUpOpen ? 'pointer-events-auto' : 'pointer-events-none'

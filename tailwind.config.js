@@ -6,7 +6,12 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          ...defaultTheme.colors.blue,
+          ...defaultTheme.colors.yellow,
+        },
+        'transparent-black': {
+          '25': 'hsla(0, 0%, 0%, 0.25)',
+          '50': 'hsla(0, 0%, 0%, 0.50)',
+          '75': 'hsla(0, 0%, 0%, 0.75)',
         },
       },
       fontFamily: {
@@ -14,10 +19,13 @@ module.exports = {
       },
     },
   },
-  variants: { margin: ['responsive', 'first'] },
+  variants: {
+    margin: ['responsive', 'first'],
+    opacity: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+  },
   plugins: [
     tailwindUI({
-      layout: 'sidebar',
+      // layout: 'sidebar',
     }),
   ],
 };

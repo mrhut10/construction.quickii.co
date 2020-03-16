@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'gatsby-image';
 
-import useGraphQL from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks/use-graphql';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
