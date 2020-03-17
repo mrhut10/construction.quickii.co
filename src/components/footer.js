@@ -1,37 +1,21 @@
 import React from 'react';
 
 import { useGraphQL } from '../hooks/use-graphql';
-import {
-  Facebook,
-  Instagram,
-  // Twitter,
-  // GitHub,
-  // Dribbble
-} from './vectors';
+import { Facebook, Instagram } from './vectors';
 
 const social = [
   {
-    network: Facebook,
+    icon: Facebook,
+    network: 'Facebook',
     link: '#',
     name: 'Facebook',
   },
   {
-    network: Instagram,
+    icon: Instagram,
+    network: 'Instagram',
     link: '#',
     name: 'Instagram',
   },
-  // {
-  //   network: Twitter,
-  //   link: '#',
-  // },
-  // {
-  //   network: GitHub,
-  //   link: '#',
-  // },
-  // {
-  //   network: Dribbble,
-  //   link: '#',
-  // },
 ];
 
 export default function Footer() {
@@ -40,48 +24,52 @@ export default function Footer() {
   } = useGraphQL();
   return (
     <div className="bg-black">
-      <div className="flex items-center justify-center max-w-screen-xl px-4 py-12 mx-auto md:justify-between sm:px-6 lg:px-8">
-        <div className="hidden leading-none md:block">
-          <h2 className="text-6xl font-extrabold uppercase text-brand-500">
+      <div className="flex flex-col max-w-screen-xl px-4 py-12 mx-auto text-center md:flex-row md:items-start md:justify-between md:flex-wrap sm:px-6 lg:px-8">
+        <div className="flex flex-col mx-auto md:w-1/2 md:mx-0 md:text-left">
+          <h2 className="text-5xl font-extrabold leading-8 uppercase md:text-6xl text-brand-500">
             Quickii
+            <br />
+            <span className="text-3xl font-bold text-white md:text-4xl">
+              Construction.
+            </span>
           </h2>
-          <h3 className="pl-12 text-4xl font-bold text-white">Construction.</h3>
+          <div className="flex mx-auto mt-3 md:mx-0">
+            {social.map((socialNetwork, index) => (
+              <a
+                key={index}
+                href={socialNetwork.link}
+                className="ml-2 text-gray-400 hover:text-gray-500 first:ml-0"
+              >
+                <span className="sr-only">{socialNetwork.network}</span>
+                <socialNetwork.icon className="w-6 h-6 bg-transparent rounded-full text-brand-600" />
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="md:order-2">
+        <div className="mx-auto mt-6 md:order-2 md:w-1/2 md:mt-0 md:mx-0">
           <div className="flex flex-col">
-            <div className="flex justify-end">
-              {social.map((socialNetwork, index) => (
-                <a
-                  key={index}
-                  href={socialNetwork.link}
-                  className="ml-2 text-gray-400 hover:text-gray-500 first:ml-0"
-                >
-                  <span className="sr-only">{socialNetwork.name}</span>
-                  <socialNetwork.network className="w-6 h-6 bg-transparent rounded-full text-brand-600" />
-                </a>
-              ))}
-            </div>
-            <div className="mt-4 text-right">
-              <p className="text-xl font-extrabold text-brand-500">
-                Phone:{' '}
-                <span className="text-lg font-thin text-white">
-                  1-800-QUICKII-CO
-                </span>
-              </p>
+            <div className="leading-5 md:text-right">
+              <dl className="mt-3 text-xl font-extrabold text-brand-500 first:mt-0">
+                <dt className="inline">Phone: </dt>
+                <dd className="inline text-lg font-thin text-white">
+                  {siteMetadata.phone}
+                </dd>
+              </dl>
 
-              <p className="text-xl font-extrabold text-brand-500">
-                Address:{' '}
-                <span className="text-lg font-thin text-white">
-                  23 Quickii St,
-                  <br /> Port Macquarie NSW 2444
-                </span>
-              </p>
-              <p className="text-xl font-extrabold text-brand-500">
-                Hours:{' '}
-                <span className="text-lg font-thin text-white">
-                  9AM - 5PM Monday-Friday
-                </span>
-              </p>
+              <dl className="mt-3 text-xl font-extrabold text-brand-500 first:mt-0">
+                <dt className="inline">Address: </dt>
+                <dd className="inline text-lg font-thin text-white">
+                  {siteMetadata.address.line1}
+                  <br /> {siteMetadata.address.line2}
+                </dd>
+              </dl>
+
+              <dl className="mt-3 text-xl font-extrabold text-brand-500 first:mt-0">
+                <dt className="inline">Hours: </dt>
+                <dd className="inline text-lg font-thin text-white">
+                  {siteMetadata.hours}
+                </dd>
+              </dl>
             </div>
           </div>
           <div />

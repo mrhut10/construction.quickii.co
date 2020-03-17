@@ -12,6 +12,47 @@ export const useGraphQL = () => {
   const data = useStaticQuery(
     graphql`
       {
+        allSiteNavigationJson {
+          nodes {
+            id
+            link
+            text
+          }
+        }
+        heroImage: file(relativePath: { eq: "hero.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        site {
+          siteMetadata {
+            title
+            facebook
+            instagram
+            phone
+            hours
+            mapEmbed
+            address {
+              line1
+              line2
+            }
+            hero {
+              copy
+              line1
+              line2
+              cta {
+                link
+                text
+              }
+            }
+            contact {
+              heading
+              copy
+            }
+          }
+        }
         aboutJson {
           alt
           copy
@@ -24,32 +65,21 @@ export const useGraphQL = () => {
             }
           }
         }
-        allSiteNavigationJson {
-          nodes {
-            id
-            link
-            text
-          }
-        }
-        placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        site {
-          siteMetadata {
-            title
-            hero {
-              copy
-              line1
-              line2
-              cta {
-                link
-                text
+        servicesJson {
+          alt
+          copy
+          heading
+          id
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
+          }
+          services {
+            service
+            copy
           }
         }
       }

@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
-
 import Spinner from 'react-svg-spinner';
 
-const Instagram = ({ token, numToDisplay }) => {
+import { useGraphQL } from '../hooks/use-graphql';
+
+export default function Instagram({ token, numToDisplay }) {
   const [isLoaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
+  const {
+    site: {
+      siteMetadata: { instagram },
+    },
+  } = useGraphQL();
 
   useEffect(() => {
     async function fetchData() {
-      const resp = await fetch(
-        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink&access_token=${token}`
+      const res = await fetch(
+        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${token}`
       );
-      const resData = await resp.json();
-      setData(resData.data.filter(item => item.media_type === 'IMAGE'));
+      const json = await res.json();
+      setData(json.data.filter(item => item.media_type === 'IMAGE'));
       setLoaded(true);
     }
 
     fetchData();
-  }, []);
+  }, [token]);
 
   return (
-    <>
+    <article>
       <h2 className="mt-12 mb-8 text-2xl font-bold text-center">
         See our latest projects on{' '}
         <a
-          href="https://www.instagram.com/seadoo14/"
+          href={instagram}
           target="_blank"
           rel="noopener noreferrer"
           className="text-brand-600 hover:text-brand-800"
@@ -33,43 +40,64 @@ const Instagram = ({ token, numToDisplay }) => {
           Instagram
         </a>
       </h2>
-      <div className="flex flex-wrap items-center justify-center max-w-5xl p-4 mx-8 mb-8 border lg:mx-auto">
+      {/* w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 */}
+      <div className="grid items-center justify-start grid-cols-2 gap-4 p-4 mx-8 mb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-7xl lg:mx-auto">
         {isLoaded ? (
           data.map((item, index) => {
-            return (
-              index < numToDisplay && (
-                <div key={item.id} className="w-1/2 p-2 sm:w-1/4">
-                  <div className="igContainer">
-                    <a
-                      href={item.permalink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src={item.media_url} alt={item.id} className="" />
-                      <div className="igOverlay">
-                        <div className="igCaption">
-                          {item.caption
-                            ? item.caption
-                            : 'Click to view on Instagram'}
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              )
-            );
+            return index < numToDisplay && <Image item={item} />;
           })
         ) : (
           <Spinner />
         )}
       </div>
-    </>
+    </article>
   );
-};
+}
 
 Instagram.propTypes = {
   token: PropTypes.string.isRequired,
   numToDisplay: PropTypes.number.isRequired,
 };
 
-export default Instagram;
+function Image({ item }) {
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
+
+  const imgRef = React.useRef(null);
+
+  useEffect(() => {
+    if (inView) {
+      imgRef.current.src = imgRef.current.dataset.src;
+    }
+  }, [inView]);
+
+  return (
+    <a
+      ref={ref}
+      href={item.permalink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative"
+    >
+      <img
+        ref={imgRef}
+        data-src={item.media_url}
+        alt={item.caption}
+        loading="lazy"
+        height="192"
+        width="192"
+        className="object-cover w-full h-full"
+      />
+      <div className="absolute inset-0 flex overflow-hidden font-sans text-sm text-white break-words whitespace-pre-wrap transition duration-200 ease-in-out opacity-0 hover:opacity-100 hover:bg-transparent-black-75">
+        <div className="m-4 line-clamp">
+          {item.caption ? item.caption : 'Click to view on Instagram'}
+        </div>
+      </div>
+    </a>
+  );
+}
+
+Image.propTypes = {
+  item: PropTypes.any,
+};

@@ -32,5 +32,6 @@ export default function Logo({ className, bgClassName }) {
 }
 
 Logo.propTypes = {
+  bgClassName: PropTypes.string,
   className: PropTypes.string,
 };

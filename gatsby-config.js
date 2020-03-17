@@ -13,6 +13,17 @@ module.exports = {
     description: 'Have the experience of a lifetime with Quickii Construction!',
     author: 'Quickii Construction',
     siteUrl: 'https://www.construction.quickii.co',
+    facebook: '#',
+    instagram: '#',
+    phone: '1800 QUI CKI',
+    address: {
+      line1: '123 Quick Street',
+      line2: 'Port Macquarie, NSW 2444',
+      googleMaps: 'https://goo.gl/maps/ZeosXPgMEVKdwikH8',
+    },
+    mapEmbed:
+      'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13614.190317341378!2d152.8248501113499!3d-31.45411988787978!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b76000716e65573%3A0x637654d59c847317!2s15%20Chancellors%20Dr%2C%20Thrumster%20NSW%202444!5e0!3m2!1sen!2sau!4v1584338013409!5m2!1sen!2sau',
+    hours: '9am – 5pm, Monday – Friday',
     hero: {
       line1: 'Creating better',
       line2: 'places',
@@ -21,6 +32,11 @@ module.exports = {
         'If you want someone to make a house for you, give us a call!',
       ],
       cta: { text: 'Call now', link: 'tel:' },
+    },
+    contact: {
+      heading: 'Contact us',
+      copy:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat voluptate tempore iste laboriosam. Amet, quae nihil nesciunt reiciendis modi error dolor provident ipsa, laborum atque beatae in necessitatibus nam pariatur!',
     },
   },
   plugins: [

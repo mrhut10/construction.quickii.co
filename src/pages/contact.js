@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hero from '../components/hero';
 import ContactForm from '../components/form/contact-form';
-import Map from '../components/map';
 import Instagram from '../components/instagram';
 
 const Contact = () => {
@@ -13,10 +12,9 @@ const Contact = () => {
       <SEO title="Contact" />
       <Hero />
       <ContactForm />
-      <Map />
       <Instagram
         token="IGQVJYR01Nal8yLTlQb1phdGV5S0VNR3p6VUc5cVRnV0k1S3puSVFyeC1DRkRISTFDSTVLNGllclM0ZAVBGbFNpQ3lGMXB3Vm5XbVQ0ZA2tUNUNLUGMxS3lJY2kyQllWeWtoSnN6NjJVcm12V1JNcHBkZAQZDZD"
-        numToDisplay={4}
+        numToDisplay={8}
       />
     </Layout>
   );
