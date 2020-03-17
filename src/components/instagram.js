@@ -5,19 +5,19 @@ import Spinner from 'react-svg-spinner';
 
 import { useGraphQL } from '../hooks/use-graphql';
 
-export default function Instagram({ token }) {
+export default function Instagram() {
   const [isLoaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
   const {
     site: {
-      siteMetadata: { instagram },
+      siteMetadata: { instagram, instagramAccessToken },
     },
   } = useGraphQL();
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${token}`
+        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${instagramAccessToken}`
       );
       const json = await res.json();
       setData(json.data.filter(item => item.media_type === 'IMAGE'));
@@ -25,7 +25,7 @@ export default function Instagram({ token }) {
     }
 
     fetchData();
-  }, [token]);
+  }, [instagramAccessToken]);
 
   return (
     <article>
@@ -46,9 +46,10 @@ export default function Instagram({ token }) {
             return (
               <Image
                 item={item}
-                extraClasses={`${
-                  index > 5 && index < 8 ? 'hidden md:block' : ''
-                }${index > 7 ? 'hidden lg:block' : ''}`}
+                extraClasses={`
+                  ${index > 5 && index < 8 && 'hidden md:block'}
+                  ${index > 7 && 'hidden lg:block'}
+                `}
               />
             );
           })
@@ -59,10 +60,6 @@ export default function Instagram({ token }) {
     </article>
   );
 }
-
-Instagram.propTypes = {
-  token: PropTypes.string.isRequired,
-};
 
 function Image({ item, extraClasses }) {
   const [ref, inView] = useInView({

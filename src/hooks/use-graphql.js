@@ -31,6 +31,7 @@ export const useGraphQL = () => {
             title
             facebook
             instagram
+            instagramAccessToken
             phone
             hours
             mapEmbed
