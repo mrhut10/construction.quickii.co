@@ -13,10 +13,12 @@ const social = [
   {
     network: Facebook,
     link: '#',
+    name: 'Facebook',
   },
   {
     network: Instagram,
     link: '#',
+    name: 'Instagram',
   },
   // {
   //   network: Twitter,
@@ -54,7 +56,7 @@ export default function Footer() {
                   href={socialNetwork.link}
                   className="ml-2 text-gray-400 hover:text-gray-500 first:ml-0"
                 >
-                  <span className="sr-only">{socialNetwork.network}</span>
+                  <span className="sr-only">{socialNetwork.name}</span>
                   <socialNetwork.network className="w-6 h-6 bg-transparent rounded-full text-brand-600" />
                 </a>
               ))}
