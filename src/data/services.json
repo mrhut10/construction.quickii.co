@@ -1,0 +1,24 @@
+[
+  {
+    "heading": "Services",
+    "copy": [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius asperiores dolor dignissimos dicta neque dolore itaque delectus facilis, veniam dolorum, ipsa natus mollitia. Non consequatur temporibus magnam nihil totam ad?"
+    ],
+    "services": [
+      {
+        "service": "Muli-Residential",
+        "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius asperiores dolor dignissimos dicta neque dolore itaque delectus facilis, veniam dolorum, ipsa natus mollitia. Non consequatur temporibus magnam nihil totam ad?"
+      },
+      {
+        "service": "Custom Homes",
+        "copy": "Eum minus earum illum possimus facere dolorum magni iusto delectus inventore reprehenderit temporibus, deleniti culpa, nobis quibusdam. Iste voluptates quod atque, architecto sunt doloremque minus recusandae quae ab fugiat vitae!"
+      },
+      {
+        "service": "Commercial Buildings",
+        "copy": "Cum expedita explicabo perspiciatis porro quae ad libero soluta vero esse recusandae ex mollitia, nisi harum quos, iusto repudiandae ratione. Sapiente asperiores iure corporis perspiciatis consectetur cumque. Fugiat, nihil explicabo."
+      }
+    ],
+    "image": "../images/hero.jpg",
+    "alt": "Alt text"
+  }
+]
