@@ -26,13 +26,6 @@ export const useGraphQL = () => {
             }
           }
         }
-        placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         site {
           siteMetadata {
             title
@@ -40,6 +33,7 @@ export const useGraphQL = () => {
             instagram
             phone
             hours
+            mapEmbed
             address {
               line1
               line2

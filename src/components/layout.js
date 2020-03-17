@@ -8,7 +8,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SignUp from './sign-up';
 import Footer from './footer';
 
 const Layout = ({ children }) => {
@@ -22,7 +21,6 @@ const Layout = ({ children }) => {
           <Footer />
         </div>
       </div>
-      <SignUp />
     </>
   );
 };
