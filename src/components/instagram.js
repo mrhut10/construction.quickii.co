@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import Spinner from 'react-svg-spinner';
 
-const Instagram = ({ token, numToDisplay }) => {
+import { useGraphQL } from '../hooks/use-graphql';
+
+export default function Instagram({ token, numToDisplay }) {
   const [isLoaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
+  const {
+    site: {
+      siteMetadata: { instagram },
+    },
+  } = useGraphQL();
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink&access_token=${token}`
+        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${token}`
       );
       const json = await res.json();
       setData(json.data.filter(item => item.media_type === 'IMAGE'));
@@ -24,7 +32,7 @@ const Instagram = ({ token, numToDisplay }) => {
       <h2 className="mt-12 mb-8 text-2xl font-bold text-center">
         See our latest projects on{' '}
         <a
-          href="https://www.instagram.com/seadoo14/"
+          href={instagram}
           target="_blank"
           rel="noopener noreferrer"
           className="text-brand-600 hover:text-brand-800"
@@ -32,38 +40,11 @@ const Instagram = ({ token, numToDisplay }) => {
           Instagram
         </a>
       </h2>
-      <div className="flex flex-wrap items-center justify-start p-4 mx-8 mb-8 max-w-7xl lg:mx-auto">
+      {/* w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 */}
+      <div className="grid items-center justify-start grid-cols-2 gap-4 p-4 mx-8 mb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-7xl lg:mx-auto">
         {isLoaded ? (
           data.map((item, index) => {
-            return (
-              index < numToDisplay && (
-                <a
-                  href={item.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative flex-shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6"
-                >
-                  <div className="p-2">
-                    <img
-                      key={item.id}
-                      src={item.media_url}
-                      alt={item.caption}
-                      loading="lazy"
-                      className="object-cover w-full h-full"
-                    />
-                    <div className="absolute inset-0 flex flex-col m-2 overflow-hidden">
-                      <div className="flex-1 p-4 font-sans text-sm text-white break-words whitespace-pre-wrap transition duration-150 ease-in-out opacity-0 line-clamp hover:opacity-100 hover:bg-transparent-black-75">
-                        <div>
-                          {item.caption
-                            ? item.caption
-                            : 'Click to view on Instagram'}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              )
-            );
+            return index < numToDisplay && <Image item={item} />;
           })
         ) : (
           <Spinner />
@@ -71,11 +52,52 @@ const Instagram = ({ token, numToDisplay }) => {
       </div>
     </article>
   );
-};
+}
 
 Instagram.propTypes = {
   token: PropTypes.string.isRequired,
   numToDisplay: PropTypes.number.isRequired,
 };
 
-export default Instagram;
+function Image({ item }) {
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
+
+  const imgRef = React.useRef(null);
+
+  useEffect(() => {
+    if (inView) {
+      imgRef.current.src = imgRef.current.dataset.src;
+    }
+  }, [inView]);
+
+  return (
+    <a
+      ref={ref}
+      href={item.permalink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative"
+    >
+      <img
+        ref={imgRef}
+        data-src={item.media_url}
+        alt={item.caption}
+        loading="lazy"
+        height="192"
+        width="192"
+        className="object-cover w-full h-full"
+      />
+      <div className="absolute inset-0 flex overflow-hidden font-sans text-sm text-white break-words whitespace-pre-wrap transition duration-200 ease-in-out opacity-0 hover:opacity-100 hover:bg-transparent-black-75">
+        <div className="m-4 line-clamp">
+          {item.caption ? item.caption : 'Click to view on Instagram'}
+        </div>
+      </div>
+    </a>
+  );
+}
+
+Image.propTypes = {
+  item: PropTypes.any,
+};
