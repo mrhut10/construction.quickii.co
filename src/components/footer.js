@@ -1,35 +1,19 @@
 import React from 'react';
 
 import { useGraphQL } from '../hooks/use-graphql';
-import {
-  Facebook,
-  Instagram,
-  // Twitter,
-  // GitHub,
-  // Dribbble
-} from './vectors';
+import { Facebook, Instagram } from './vectors';
 
 const social = [
   {
-    network: Facebook,
+    icon: Facebook,
+    network: 'Facebook',
     link: '#',
   },
   {
-    network: Instagram,
+    icon: Instagram,
+    network: 'Instagram',
     link: '#',
   },
-  // {
-  //   network: Twitter,
-  //   link: '#',
-  // },
-  // {
-  //   network: GitHub,
-  //   link: '#',
-  // },
-  // {
-  //   network: Dribbble,
-  //   link: '#',
-  // },
 ];
 
 export default function Footer() {
@@ -55,7 +39,7 @@ export default function Footer() {
                   className="ml-2 text-gray-400 hover:text-gray-500 first:ml-0"
                 >
                   <span className="sr-only">{socialNetwork.network}</span>
-                  <socialNetwork.network className="w-6 h-6 bg-transparent rounded-full text-brand-600" />
+                  <socialNetwork.icon className="w-6 h-6 bg-transparent rounded-full text-brand-600" />
                 </a>
               ))}
             </div>
