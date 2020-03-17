@@ -38,19 +38,14 @@ const Instagram = ({ token, numToDisplay }) => {
           data.map((item, index) => {
             return (
               index < numToDisplay && (
-                <div className="w-1/2 p-2 sm:w-1/4">
+                <div key={item.id} className="w-1/2 p-2 sm:w-1/4">
                   <div className="igContainer">
                     <a
                       href={item.permalink}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <img
-                        key={item.id}
-                        src={item.media_url}
-                        alt={item.id}
-                        className=""
-                      />
+                      <img src={item.media_url} alt={item.id} className="" />
                       <div className="igOverlay">
                         <div className="igCaption">
                           {item.caption
