@@ -40,7 +40,6 @@ export default function Instagram({ token, numToDisplay }) {
           Instagram
         </a>
       </h2>
-      {/* w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 */}
       <div className="grid items-center justify-start grid-cols-2 gap-4 p-4 mx-8 mb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-7xl lg:mx-auto">
         {isLoaded ? (
           data.map((item, index) => {
