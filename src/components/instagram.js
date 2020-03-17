@@ -5,7 +5,7 @@ import Spinner from 'react-svg-spinner';
 
 import { useGraphQL } from '../hooks/use-graphql';
 
-export default function Instagram({ token, numToDisplay }) {
+export default function Instagram({ token }) {
   const [isLoaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
   const {
@@ -43,7 +43,14 @@ export default function Instagram({ token, numToDisplay }) {
       <div className="grid items-center justify-start grid-cols-2 gap-4 p-4 mx-8 mb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-7xl lg:mx-auto">
         {isLoaded ? (
           data.map((item, index) => {
-            return index < numToDisplay && <Image item={item} />;
+            return (
+              <Image
+                item={item}
+                extraClasses={`${
+                  index > 5 && index < 8 ? 'hidden md:block' : ''
+                }${index > 7 ? 'hidden lg:block' : ''}`}
+              />
+            );
           })
         ) : (
           <Spinner />
@@ -55,10 +62,9 @@ export default function Instagram({ token, numToDisplay }) {
 
 Instagram.propTypes = {
   token: PropTypes.string.isRequired,
-  numToDisplay: PropTypes.number.isRequired,
 };
 
-function Image({ item }) {
+function Image({ item, extraClasses }) {
   const [ref, inView] = useInView({
     threshold: 0,
   });
@@ -77,7 +83,7 @@ function Image({ item }) {
       href={item.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative"
+      className={`relative ${extraClasses && extraClasses}`}
     >
       <img
         ref={imgRef}
@@ -99,4 +105,5 @@ function Image({ item }) {
 
 Image.propTypes = {
   item: PropTypes.any,
+  extraClasses: PropTypes.string,
 };
