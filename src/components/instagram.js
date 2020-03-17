@@ -18,7 +18,6 @@ const Instagram = ({ token, numToDisplay }) => {
     }
 
     fetchData();
-    console.log(data);
   }, []);
 
   return (
