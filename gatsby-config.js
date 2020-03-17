@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const postCssImport = require('postcss-import');
 const tailwind = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
@@ -7,6 +8,10 @@ const tailwindConfig = require('./tailwind.config.js');
 
 const fullConfig = resolveConfig(tailwindConfig);
 
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Quickii Construction',
@@ -15,6 +20,7 @@ module.exports = {
     siteUrl: 'https://www.construction.quickii.co',
     facebook: '#',
     instagram: '#',
+    instagramAccessToken: process.env.GATSBY_INSTAGRAM_ACCESS_TOKEN,
     phone: '1800 QUI CKI',
     address: {
       line1: '123 Quick Street',

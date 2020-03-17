@@ -5,25 +5,25 @@ import Spinner from 'react-svg-spinner';
 
 import { useGraphQL } from '../hooks/use-graphql';
 
-export default function Instagram({ token }) {
+export default function Instagram() {
   const [data, setData] = useState([]);
   const {
     site: {
-      siteMetadata: { instagram },
+      siteMetadata: { instagram, instagramAccessToken },
     },
   } = useGraphQL();
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${token}`
+        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${instagramAccessToken}`
       );
       const json = await res.json();
       setData(json.data.filter(item => item.media_type === 'IMAGE'));
     }
 
     fetchData();
-  }, [token]);
+  }, [instagramAccessToken]);
 
   return (
     <article>
@@ -53,10 +53,6 @@ export default function Instagram({ token }) {
     </article>
   );
 }
-
-Instagram.propTypes = {
-  token: PropTypes.string.isRequired,
-};
 
 function Image({ item, extraClasses }) {
   const [imgLoaded, setImgLoaded] = useState(false);

@@ -1,5 +1,5 @@
-export { Facebook } from './facebook';
-export { Instagram } from './instagram';
-export { Twitter } from './twitter';
-export { GitHub } from './github';
-export { Dribbble } from './dribbble';
+export { Facebook } from './facebook-icon';
+export { Instagram } from './instagram-icon';
+export { Twitter } from './twitter-icon';
+export { GitHub } from './github-icon';
+export { Dribbble } from './dribbble-icon';
