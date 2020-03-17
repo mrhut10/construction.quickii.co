@@ -33,7 +33,7 @@ const Instagram = ({ token, numToDisplay }) => {
           Instagram
         </a>
       </h2>
-      <div className="flex flex-wrap items-center justify-center max-w-5xl p-4 mx-8 border lg:mx-auto">
+      <div className="flex flex-wrap items-center justify-center max-w-5xl p-4 mx-8 mb-8 border lg:mx-auto">
         {isLoaded ? (
           data.map((item, index) => {
             return (
