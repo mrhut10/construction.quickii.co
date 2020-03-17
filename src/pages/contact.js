@@ -6,7 +6,7 @@ import Hero from '../components/hero';
 import ContactForm from '../components/form/contact-form';
 import Instagram from '../components/instagram';
 
-const Contact = () => {
+export default function ContactPage() {
   return (
     <Layout>
       <SEO title="Contact" />
@@ -15,6 +15,4 @@ const Contact = () => {
       <Instagram />
     </Layout>
   );
-};
-
-export default Contact;
+}
