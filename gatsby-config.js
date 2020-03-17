@@ -17,7 +17,7 @@ module.exports = {
       line1: 'Creating better',
       line2: 'places',
       copy: [
-        'Quickii Construction make houses. Thats it.',
+        "Quickii Construction make houses. That's it.",
         'If you want someone to make a house for you, give us a call!',
       ],
       cta: { text: 'Call now', link: 'tel:' },
