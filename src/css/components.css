@@ -1,45 +1,9 @@
 /* These classes have lower specificity so we can override them
    with utility classes */
 
-.highlight {
-  background-image: linear-gradient(
-    to bottom,
-    transparent 70%,
-    theme("colors.teal.200") 70%
-  );
-  color: theme("colors.teal.600");
-  @apply inline-block font-bold;
-}
-
-.igContainer {
-  position: relative;
-}
-
-.igOverlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.igContainer:hover .igOverlay {
-  opacity: 1;
-}
-
-.igCaption {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  @apply overflow-hidden;
 }
