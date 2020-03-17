@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
+import Image from 'gatsby-image';
 
 import { useGraphQL } from '../hooks/use-graphql';
 import SiteContext from '../context/site-context';
@@ -8,6 +9,7 @@ import Logo from './logo';
 export default function Hero() {
   const { isNavOpen, setNavOpen } = useContext(SiteContext);
   const {
+    heroImage,
     site: {
       siteMetadata: { hero },
     },
@@ -15,11 +17,12 @@ export default function Hero() {
   const { allSiteNavigationJson } = useGraphQL();
   return (
     <div className="relative overflow-hidden bg-gray-50">
-      <img
-        src="https://images.unsplash.com/photo-1496588152823-86ff7695e68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-        alt=""
-        className="absolute inset-0 object-cover w-full h-full"
-      />
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          fluid={heroImage.childImageSharp.fluid}
+          className="w-full h-full"
+        />
+      </div>
       <div className="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32 bg-transparent-black-50">
         <div className="max-w-screen-xl px-4 mx-auto sm:px-6">
           <nav className="relative flex items-center justify-between sm:h-10 md:justify-center">
@@ -78,11 +81,7 @@ export default function Hero() {
           </nav>
         </div>
         {isNavOpen && (
-          <div
-            // x-show="open"
-            // style="display: none;"
-            className="absolute inset-x-0 top-0 p-2 md:hidden"
-          >
+          <div className="absolute inset-x-0 top-0 p-2 md:hidden">
             <div
               className={`transition origin-top-right transform rounded-lg shadow-md ${
                 isNavOpen
