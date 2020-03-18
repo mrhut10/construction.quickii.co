@@ -1,3 +1,4 @@
+export { LogoLandscape } from './logo-landscape';
 export { Facebook } from './facebook-icon';
 export { Instagram } from './instagram-icon';
 export { Twitter } from './twitter-icon';

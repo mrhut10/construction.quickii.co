@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useGraphQL } from '../hooks/use-graphql';
-import { Facebook, Instagram } from './vectors';
+import { LogoLandscape, Facebook, Instagram } from './vectors';
 
 const social = [
   {
@@ -26,13 +26,10 @@ export default function Footer() {
     <div className="bg-black">
       <div className="flex flex-col max-w-screen-xl px-4 py-12 mx-auto text-center md:flex-row md:items-start md:justify-between md:flex-wrap sm:px-6 lg:px-8">
         <div className="flex flex-col mx-auto md:w-1/2 md:mx-0 md:text-left">
-          <h2 className="text-5xl font-extrabold leading-8 uppercase md:text-6xl text-brand-500">
-            Quickii
-            <br />
-            <span className="text-3xl font-bold text-white md:text-4xl">
-              Construction.
-            </span>
-          </h2>
+          <LogoLandscape
+            firstWord="fill-current text-brand-600"
+            className="w-56 text-white fill-current"
+          />
           <div className="flex mx-auto mt-3 md:mx-0">
             {social.map((socialNetwork, index) => (
               <a
