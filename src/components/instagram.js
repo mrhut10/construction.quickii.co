@@ -49,9 +49,10 @@ export default function Instagram() {
           return (
             <Image
               item={item}
-              extraClasses={`${
-                index > 5 && index < 8 ? 'hidden md:block' : ''
-              }${index > 7 ? 'hidden lg:block' : ''}`}
+              extraClasses={`
+                ${index > 5 && index < 8 && 'hidden md:block'}
+                ${index > 7 && 'hidden lg:block'}
+              `}
             />
           );
         })}
