@@ -69,6 +69,9 @@ function Image({ item, extraClasses }) {
   useEffect(() => {
     if (inView) {
       imgRef.current.src = imgRef.current.dataset.src;
+      setTimeout(() => {
+        imgRef.current.removeAttribute('data-src');
+      }, 1000);
     }
   }, [inView]);
 
