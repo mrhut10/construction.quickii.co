@@ -44,7 +44,7 @@ export default function Instagram() {
           Instagram
         </a>
       </h2>
-      <div className="grid items-center justify-start grid-cols-2 gap-4 p-4 mx-8 mb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 max-w-7xl lg:mx-auto">
+      <div className="grid items-center justify-start grid-cols-2 gap-4 py-6 mx-auto mb-8 max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:mx-auto">
         {data.map((item, index) => {
           return (
             <Image
