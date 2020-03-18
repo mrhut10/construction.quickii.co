@@ -13,6 +13,11 @@ module.exports = {
           '50': 'hsla(0, 0%, 0%, 0.50)',
           '75': 'hsla(0, 0%, 0%, 0.75)',
         },
+        'transparent-white': {
+          '25': 'hsla(0, 100%, 100%, 0.25)',
+          '50': 'hsla(0, 100%, 100%, 0.50)',
+          '75': 'hsla(0, 100%, 100%, 0.75)',
+        },
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
