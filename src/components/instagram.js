@@ -23,7 +23,9 @@ export default function Instagram() {
         `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${instagramAccessToken}`
       );
       const json = await res.json();
-      setData(json.data.filter(item => item.media_type === 'IMAGE'));
+      setData(
+        json.data.filter(item => item.media_type === 'IMAGE').slice(0, 12)
+      );
     }
 
     fetchData();
@@ -62,6 +64,7 @@ function Image({ item, extraClasses }) {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0,
+    triggerOnce: true,
   });
 
   const imgRef = React.useRef(null);
