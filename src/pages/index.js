@@ -6,6 +6,7 @@ import Hero from '../components/hero';
 import About from '../components/about';
 import Services from '../components/services';
 import ContactForm from '../components/form/contact-form';
+import Instagram from '../components/instagram';
 
 const IndexPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const IndexPage = () => (
     <About />
     <Services />
     <ContactForm />
+    <Instagram />
   </Layout>
 );
 
