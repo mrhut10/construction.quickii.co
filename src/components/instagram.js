@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import Spinner from 'react-svg-spinner';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
 import { useGraphQL } from '../hooks/use-graphql';
+import tailwindConfig from '../../tailwind.config.js';
+
+const fullConfig = resolveConfig(tailwindConfig);
 
 export default function Instagram() {
   const [data, setData] = useState([]);
@@ -74,21 +78,23 @@ function Image({ item, extraClasses }) {
       href={item.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      className={`relative ${extraClasses && extraClasses}`}
+      className={`relative h-0 pb-full bg-gray-100 ${extraClasses &&
+        extraClasses}`}
     >
       <img
         onLoad={() => setImgLoaded(true)}
         ref={imgRef}
         data-src={item.media_url}
-        alt={item.caption}
-        loading="lazy"
-        height="192"
-        width="192"
-        className="object-cover w-full h-full bg-gray-500"
+        alt={imgLoaded && item.caption}
+        className="absolute inset-0 object-cover w-full h-full"
       />
       {!imgLoaded && (
-        <div className="absolute w-full h-full -mt-2 -ml-2 top-1/2 left-1/2">
-          <Spinner />
+        <div className="absolute inset-0 flex items-center justify-center w-full h-full">
+          <Spinner
+            size={fullConfig.theme.spacing[8]}
+            color={fullConfig.theme.colors.brand[600]}
+            thickness={3}
+          />
         </div>
       )}
 
