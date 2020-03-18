@@ -7,3 +7,7 @@
   -webkit-box-orient: vertical;
   @apply overflow-hidden;
 }
+
+::selection {
+  @apply bg-brand-300 text-brand-900 opacity-100;
+}
