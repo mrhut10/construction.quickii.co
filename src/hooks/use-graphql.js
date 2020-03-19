@@ -26,6 +26,27 @@ export const useGraphQL = () => {
             }
           }
         }
+        servicesHeroImage: file(relativePath: { eq: "services.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        aboutHeroImage: file(relativePath: { eq: "about.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        contactHeroImage: file(relativePath: { eq: "contact.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         site {
           siteMetadata {
             title
