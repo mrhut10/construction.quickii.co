@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGraphQL } from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks';
 
 export default function Map() {
   const {

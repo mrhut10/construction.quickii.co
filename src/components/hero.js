@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
-import { useGraphQL } from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks';
 import SiteContext from '../context/site-context';
 import Logo from './logo';
 

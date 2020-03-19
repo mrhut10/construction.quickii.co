@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useGraphQL } from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks';
 import { LogoLandscape, Facebook, Instagram } from './vectors';
 
 const social = [

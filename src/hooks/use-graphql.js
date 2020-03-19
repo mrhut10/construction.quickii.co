@@ -2,7 +2,7 @@
 // Add new queries as necessary
 // (you add aliases if you need to access the same node more than once)
 // To use:
-// import { useGraphQL } from './src/hooks/use-graphql.js'
+// import { useGraphQL } from './src/hooks';
 // const { site } = useGraphQL();
 // return <h1>{site.siteMetadata.title}</h1>;
 

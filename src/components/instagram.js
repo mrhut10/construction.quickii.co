@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Spinner from 'react-svg-spinner';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import { useGraphQL } from '../hooks/use-graphql';
+import { useGraphQL } from '../hooks';
 import tailwindConfig from '../../tailwind.config.js';
 
 const fullConfig = resolveConfig(tailwindConfig);

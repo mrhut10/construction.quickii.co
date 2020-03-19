@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 
-import { useGraphQL } from '../../hooks/use-graphql';
+import { useGraphQL } from '../../hooks';
 import Input from './input';
 import TextArea from './textarea';
 import Map from '../map';
