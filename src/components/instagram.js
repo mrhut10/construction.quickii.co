@@ -71,13 +71,13 @@ function Image({ item, extraClasses }) {
   const imgRef = React.useRef(null);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && item.media_url) {
       imgRef.current.src = imgRef.current.dataset.src;
       setTimeout(() => {
         imgRef.current.removeAttribute('data-src');
       }, 1000);
     }
-  }, [inView]);
+  }, [inView, item.media_url]);
 
   return (
     <a
