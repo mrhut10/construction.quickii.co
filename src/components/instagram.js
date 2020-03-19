@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 import Spinner from 'react-svg-spinner';
@@ -68,7 +68,7 @@ function Image({ item, extraClasses }) {
     triggerOnce: true,
   });
 
-  const imgRef = React.useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     if (inView && item.media_url) {
