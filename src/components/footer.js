@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
 import { LogoLandscape, Facebook, Instagram } from './vectors';
@@ -26,10 +27,12 @@ export default function Footer() {
     <div className="bg-black">
       <div className="flex flex-col max-w-screen-xl px-4 py-12 mx-auto text-center md:flex-row md:items-start md:justify-between md:flex-wrap sm:px-6 lg:px-8">
         <div className="flex flex-col mx-auto md:w-1/2 md:mx-0 md:text-left">
-          <LogoLandscape
-            firstWord="fill-current text-brand-600"
-            className="w-56 text-white fill-current"
-          />
+          <Link to="/">
+            <LogoLandscape
+              firstWord="fill-current text-brand-600"
+              className="w-56 text-white fill-current"
+            />
+          </Link>
           <div className="flex mx-auto mt-3 md:mx-0">
             {social.map((socialNetwork, index) => (
               <a
