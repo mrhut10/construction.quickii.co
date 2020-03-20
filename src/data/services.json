@@ -16,9 +16,13 @@
       {
         "service": "Commercial Buildings",
         "copy": "Cum expedita explicabo perspiciatis porro quae ad libero soluta vero esse recusandae ex mollitia, nisi harum quos, iusto repudiandae ratione. Sapiente asperiores iure corporis perspiciatis consectetur cumque. Fugiat, nihil explicabo."
+      },
+      {
+        "service": "Fourth Thing",
+        "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius asperiores dolor dignissimos dicta neque dolore itaque delectus facilis, veniam dolorum, ipsa natus mollitia. Non consequatur temporibus magnam nihil totam ad?"
       }
     ],
-    "image": "../images/hero.jpg",
+    "image": "../images/services.jpg",
     "alt": "Alt text"
   }
 ]

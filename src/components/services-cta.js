@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'gatsby-image';
 
 import { useGraphQL } from '../hooks';
+import InternalLinkButton from './internal-link-button';
 
 export default function Services() {
   const { servicesJson } = useGraphQL();
@@ -52,6 +53,9 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-8">
+                <InternalLinkButton link="/about" text="Learn more &rarr;" />
+              </p>
             </div>
             <div className="relative mt-10 -mx-4 lg:mt-0 lg:col-start-1">
               <Image
