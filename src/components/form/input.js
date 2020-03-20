@@ -26,7 +26,7 @@ export function Input({
         type={type}
         autoComplete={autoComplete}
         onChange={handleChange}
-        className="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+        className="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-yellow focus:border-brand-300 sm:text-sm sm:leading-5"
       />
     </fieldset>
   );
