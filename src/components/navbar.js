@@ -53,7 +53,7 @@ export default function Navbar() {
               <Link
                 key={navItem.id}
                 to={navItem.link}
-                className="ml-10 font-medium text-gray-200 transition duration-150 ease-in-out hover:text-white focus:outline-none focus:text-white first:ml-0"
+                className="ml-10 font-medium text-gray-200 transition duration-150 ease-in-out hover:text-brand-600 focus:outline-none focus:text-brand-600 first:ml-0"
               >
                 {navItem.text}
               </Link>
