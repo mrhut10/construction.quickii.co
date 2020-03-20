@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 
-import { useGraphQL } from '../../hooks';
-import Input from './input';
-import TextArea from './textarea';
-import Map from '../map';
+import { useGraphQL } from '../hooks';
+import { Input, TextArea } from './form';
+import Map from './map';
 
 function encode(data) {
   return Object.keys(data)
@@ -12,7 +11,7 @@ function encode(data) {
     .join('&');
 }
 
-const ContactForm = () => {
+export function ContactForm() {
   const {
     site: { siteMetadata },
   } = useGraphQL();
@@ -189,6 +188,4 @@ const ContactForm = () => {
       </div>
     </form>
   );
-};
-
-export default ContactForm;
+}

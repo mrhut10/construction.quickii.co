@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextArea = ({
+export function TextArea({
   label,
   name,
   value,
@@ -9,7 +9,7 @@ const TextArea = ({
   required,
   autoComplete,
   handleChange,
-}) => {
+}) {
   return (
     <fieldset>
       <label
@@ -30,7 +30,7 @@ const TextArea = ({
       />
     </fieldset>
   );
-};
+}
 
 TextArea.propTypes = {
   label: PropTypes.string.isRequired,
@@ -41,5 +41,3 @@ TextArea.propTypes = {
   autoComplete: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
-
-export default TextArea;

@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { Hero } from '../components/hero';
-import { useGraphQL } from '../hooks';
+import { ContactForm } from '../components/contact-form';
 
 export default function ServicesPage() {
   const { servicesHeroImage } = useGraphQL();
@@ -11,6 +11,7 @@ export default function ServicesPage() {
     <Layout>
       <SEO title="Services" />
       <Hero heroImage={servicesHeroImage.childImageSharp.fluid} />
+      <ContactForm />
     </Layout>
   );
 }

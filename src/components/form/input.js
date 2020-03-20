@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({
+export function Input({
   label,
   name,
   value,
@@ -9,7 +9,7 @@ const Input = ({
   type = 'text',
   autoComplete,
   handleChange,
-}) => {
+}) {
   return (
     <fieldset>
       <label
@@ -30,7 +30,7 @@ const Input = ({
       />
     </fieldset>
   );
-};
+}
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
@@ -41,5 +41,3 @@ Input.propTypes = {
   autoComplete: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
-
-export default Input;

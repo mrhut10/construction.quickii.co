@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Select = ({ label, name, value, options, required, handleChange }) => {
+export function Select({
+  label,
+  name,
+  value,
+  options,
+  required,
+  handleChange,
+}) {
   return (
     <fieldset>
       <label
@@ -25,7 +32,7 @@ const Select = ({ label, name, value, options, required, handleChange }) => {
       </select>
     </fieldset>
   );
-};
+}
 
 Select.propTypes = {
   label: PropTypes.string.isRequired,
@@ -35,5 +42,3 @@ Select.propTypes = {
   options: PropTypes.array.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
-
-export default Select;
