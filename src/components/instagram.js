@@ -39,7 +39,7 @@ export default function Instagram() {
           href={instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-brand-600 hover:text-brand-800"
+          className="text-brand-600 hover:text-brand-500"
         >
           Instagram
         </a>

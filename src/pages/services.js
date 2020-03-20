@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import { Hero } from '../components/hero';
 import ServicesFirstSection from '../components/services-first-section';
 import { ContactForm } from '../components/contact-form';
+import Instagram from '../components/instagram';
 
 export default function ServicesPage() {
   const { servicesHeroImage } = useGraphQL();
@@ -15,6 +16,7 @@ export default function ServicesPage() {
       <Hero heroImage={servicesHeroImage.childImageSharp.fluid} />
       <ServicesFirstSection />
       <ContactForm />
+      <Instagram />
     </Layout>
   );
 }
