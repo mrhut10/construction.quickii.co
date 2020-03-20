@@ -8,7 +8,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'typeface-inter';
+import 'typeface-montserrat';
 
 import { SiteProvider } from './src/context/site-context';
 import './src/css/tailwind.css';
