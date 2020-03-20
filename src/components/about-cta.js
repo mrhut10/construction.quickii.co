@@ -34,6 +34,7 @@ export default function About() {
             <Image
               fluid={aboutJson.image.childImageSharp.fluid}
               alt={aboutJson.alt}
+              className="overflow-hidden rounded-lg shadow-lg"
             />
           </div>
         </div>

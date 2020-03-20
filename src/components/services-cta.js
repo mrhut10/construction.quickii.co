@@ -70,7 +70,7 @@ export default function Services() {
               <Image
                 fluid={servicesJson.image.childImageSharp.fluid}
                 alt={servicesJson.alt}
-                className="relative mx-auto"
+                className="relative mx-auto overflow-hidden rounded-lg shadow-lg"
               />
             </div>
           </div>
