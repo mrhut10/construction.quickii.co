@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'gatsby-image';
 
+import { Link } from 'gatsby';
 import { useGraphQL } from '../hooks';
 import InternalLinkButton from './internal-link-button';
 
@@ -13,7 +14,12 @@ export default function Services() {
           <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div className="lg:col-start-2">
               <h4 className="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9">
-                {servicesJson.heading}
+                <Link
+                  to="/services/"
+                  className="transition duration-150 ease-in text-brand-600 hover:text-brand-500"
+                >
+                  {servicesJson.heading}
+                </Link>
               </h4>
               {servicesJson.copy.map((copy, index) => (
                 <p key={index} className="mt-3 text-lg leading-7 text-gray-500">
@@ -54,7 +60,10 @@ export default function Services() {
                 ))}
               </ul>
               <p className="mt-8">
-                <InternalLinkButton link="/about" text="Learn more &rarr;" />
+                <InternalLinkButton
+                  link="/services/"
+                  text="Learn more &rarr;"
+                />
               </p>
             </div>
             <div className="relative mt-10 -mx-4 lg:mt-0 lg:col-start-1">
