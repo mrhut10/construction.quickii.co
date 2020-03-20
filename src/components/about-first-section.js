@@ -1,149 +1,61 @@
 import React from 'react';
+import { useGraphQL } from '../hooks';
 
 export default function AboutFirstSection() {
+  const { aboutJson } = useGraphQL();
   return (
-    <div className="py-12 bg-white">
-      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-        <div className="lg:text-center">
-          <p className="text-base font-semibold leading-6 tracking-wide uppercase text-brand-600">
-            Transactions
-          </p>
-          <h3 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-            A better way to send money
-          </h3>
-          <p className="max-w-2xl mt-4 text-xl leading-7 text-gray-500 lg:mx-auto">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-            voluptatum cupiditate veritatis in accusamus quisquam.
-          </p>
+    <div className="bg-gray-50">
+      <div className="pt-12 sm:pt-16 lg:pt-24">
+        <div className="max-w-screen-xl px-4 mx-auto text-center sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto lg:max-w-none">
+            <h2 className="text-lg font-semibold leading-6 tracking-wider uppercase text-brand-600">
+              About
+            </h2>
+            <p className="mt-2 text-3xl font-extrabold leading-9 text-gray-900 sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
+              Meet the Quickii team
+            </p>
+            <p className="mt-2 text-xl leading-7 text-gray-500">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum
+              sequi unde repudiandae natus.
+            </p>
+          </div>
         </div>
-
-        <div className="mt-10">
-          <ul className="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
-            <li>
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-12 h-12 text-white rounded-md bg-brand-500">
-                    <svg
-                      className="w-6 h-6"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                      />
-                    </svg>
+      </div>
+      <div className="pb-12 mt-8 lg:bg-gray-900 sm:mt-12 sm:pb-16 lg:mt-16 lg:pb-24">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gray-50 h-3/4" />
+          <div className="relative z-10 max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="max-w-md mx-auto lg:max-w-5xl lg:grid lg:grid-cols-2 lg:gap-5">
+              {aboutJson.team.map(teamMember => (
+                <div className="mt-4 overflow-hidden rounded-lg shadow-lg">
+                  <div className="px-6 py-8 bg-white sm:p-10 sm:pb-6">
+                    <div className="flex items-center">
+                      <div className="inline-flex flex-shrink-0 border-2 border-white rounded-full">
+                        <img
+                          className="w-32 h-32 border-4 rounded-full border-brand-600"
+                          src={teamMember.image}
+                          alt={teamMember.name}
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <div className="text-2xl font-medium leading-7 text-gray-900">
+                          {teamMember.name}
+                        </div>
+                        <div className="text-base font-medium font-semibold leading-7 uppercase text-brand-600">
+                          {teamMember.position}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="px-6 py-8 bg-gray-100 sm:p-10 sm:pb-6">
+                    <p className="mt-5 text-lg leading-7 text-gray-600 first:mt-0">
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    </p>
                   </div>
                 </div>
-                <div className="ml-4">
-                  <h5 className="text-lg font-medium leading-6 text-gray-900">
-                    Competitive exchange rates
-                  </h5>
-                  <p className="mt-2 text-base leading-6 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li className="mt-10 md:mt-0">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-12 h-12 text-white rounded-md bg-brand-500">
-                    <svg
-                      className="w-6 h-6"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h5 className="text-lg font-medium leading-6 text-gray-900">
-                    No hidden fees
-                  </h5>
-                  <p className="mt-2 text-base leading-6 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li className="mt-10 md:mt-0">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-12 h-12 text-white rounded-md bg-brand-500">
-                    <svg
-                      className="w-6 h-6"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h5 className="text-lg font-medium leading-6 text-gray-900">
-                    Transfers are instant
-                  </h5>
-                  <p className="mt-2 text-base leading-6 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li className="mt-10 md:mt-0">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-12 h-12 text-white rounded-md bg-brand-500">
-                    <svg
-                      className="w-6 h-6"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h5 className="text-lg font-medium leading-6 text-gray-900">
-                    Mobile notifications
-                  </h5>
-                  <p className="mt-2 text-base leading-6 text-gray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

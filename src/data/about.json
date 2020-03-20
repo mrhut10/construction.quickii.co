@@ -7,6 +7,32 @@
       "Cum expedita explicabo perspiciatis porro quae ad libero soluta vero esse recusandae ex mollitia, nisi harum quos, iusto repudiandae ratione. Sapiente asperiores iure corporis perspiciatis consectetur cumque. Fugiat, nihil explicabo."
     ],
     "image": "../images/about.jpg",
-    "alt": "Alt text"
+    "alt": "Alt text",
+    "team": [
+      {
+        "image": "https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=502&h=502&q=80",
+        "name": "Phiranno Chuon",
+        "position": "Creative Director",
+        "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1578875315363-076171ddef21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=502&h=502&q=80",
+        "name": "Colby Buxton",
+        "position": "Business Manager",
+        "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=502&h=502&q=80",
+        "name": "Luke Bennett",
+        "position": "Lead Developer",
+        "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1582502596148-e4bfcec6e8bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=502&h=502&q=80",
+        "name": "Andrew Phelps",
+        "position": "Web Developer",
+        "bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+      }
+    ]
   }
 ]

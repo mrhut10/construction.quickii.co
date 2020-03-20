@@ -86,6 +86,12 @@ export const useGraphQL = () => {
               }
             }
           }
+          team {
+            image
+            name
+            position
+            bio
+          }
         }
         servicesJson {
           alt
