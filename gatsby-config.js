@@ -68,7 +68,7 @@ module.exports = {
         background_color: fullConfig.theme.colors.brand['700'],
         theme_color: fullConfig.theme.colors.brand['700'],
         display: 'minimal-ui',
-        icon: 'src/images/logo.svg', // This path is relative to the root of the site.
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
     {
