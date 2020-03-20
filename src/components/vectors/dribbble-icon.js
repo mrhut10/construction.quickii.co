@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function Dribbble({ className }) {
+export function DribbbleIcon({ className }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -13,8 +13,8 @@ export function Dribbble({ className }) {
   );
 }
 
-Dribbble.propTypes = {
+DribbbleIcon.propTypes = {
   className: PropTypes.string,
 };
 
-export default Dribbble;
+export default DribbbleIcon;

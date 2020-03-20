@@ -1,6 +1,7 @@
 export { LogoLandscape } from './logo-landscape';
-export { Facebook } from './facebook-icon';
-export { Instagram } from './instagram-icon';
-export { Twitter } from './twitter-icon';
-export { GitHub } from './github-icon';
-export { Dribbble } from './dribbble-icon';
+export { FacebookIcon } from './facebook-icon';
+export { InstagramIcon } from './instagram-icon';
+export { TwitterIcon } from './twitter-icon';
+export { GitHubIcon } from './github-icon';
+export { DribbbleIcon } from './dribbble-icon';
+export { HomeIcon } from './home-icon';

@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
-import { LogoLandscape, Facebook, Instagram } from './vectors';
+import { LogoLandscape, FacebookIcon, InstagramIcon } from './vectors';
 
 const social = [
   {
-    icon: Facebook,
+    icon: FacebookIcon,
     network: 'Facebook',
     link: '#',
     name: 'Facebook',
   },
   {
-    icon: Instagram,
+    icon: InstagramIcon,
     network: 'Instagram',
     link: '#',
     name: 'Instagram',

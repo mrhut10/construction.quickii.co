@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function Instagram({ className }) {
+export function InstagramIcon({ className }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -13,6 +13,6 @@ export function Instagram({ className }) {
   );
 }
 
-Instagram.propTypes = {
+InstagramIcon.propTypes = {
   className: PropTypes.string,
 };
