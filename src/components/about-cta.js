@@ -14,7 +14,7 @@ export default function About() {
           <div className="relative">
             <h4 className="text-2xl font-extrabold leading-8 tracking-tight sm:text-3xl sm:leading-9">
               <Link
-                to="/about"
+                to="/about/"
                 className="transition duration-150 ease-in text-brand-600 hover:text-brand-500"
               >
                 {aboutJson.heading}
@@ -26,7 +26,7 @@ export default function About() {
               </p>
             ))}
             <p className="mt-8">
-              <InternalLinkButton link="/about" text="Learn more &rarr;" />
+              <InternalLinkButton link="/about/" text="Learn more &rarr;" />
             </p>
           </div>
 
