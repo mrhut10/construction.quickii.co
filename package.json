@@ -3,5 +3,13 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.20.2"
+  },
+  "scripts": {
+    "website-cd": "cd website",
+    "website-build": "npm run website-cd && npm run build",
+    "website-dev": "npm run website-cd && npm run start",
+    "admin-cd": "cd admin",
+    "admin-build": "npm run admin-cd && npm run build",
+    "admin-dev": "npm run admin-cd && npm run start"
   }
 }
